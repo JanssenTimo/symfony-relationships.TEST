@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div id="wrapper">
+        <h1>Afdelingen</h1>
+        {% for afdeling in afdeling %}
+            <h2>{{ afdeling.naam }}</h2>
+
+
+        <table border="1" cellpadding="10">
+            <thead style="font-weight: bold">
+                <td>ID</td>
+                <td>Naam</td>
+                <td>Username</td>
+                <td>Password</td>
+                <td>Salaris</td>
+                <td>Roles</td>
+            </thead>
+            {% for user in afdeling.users %}
+            <tr>
+                <td>{{ user.id }}</td>
+                <td>{{ user.naam }}</td>
+                <td>{{ user.username }}</td>
+                <td>{{ user.password }}</td>
+                <td>{{ user.salaris }}</td>
+                <td>{{ user.roles }}</td>
+            </tr>
+            {% endfor %}
+
+        </table>
+        {% endfor %}
+    </div>
+{% endblock %}
+
+{% block stylesheets %}
+<style>
+    #wrapper { margin: auto; }
+</style>
+{% endblock %}
